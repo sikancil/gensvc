@@ -240,7 +240,7 @@ This section contains the specific, actionable steps for the development cycle.
 
 **Task 1.1: CLI Tool Setup (4 Hours or less)**
 
-*   **Action:** Initialize a new Node.js project for the CLI tool (`mkdir nest-generator-cli && cd nest-generator-cli && npm init -y`).
+*   **Action:** Initialize a new Node.js project for the CLI tool (`mkdir /app && cd /app && npm init -y`). If already current project directory, and `package.json` exist, skip this step, otherwise initialize `package.json` with command `npm init -y`.
 *   **Dependencies:** Install the required libraries:
     ```bash
     npm install commander inquirer ejs fs-extra shelljs chalk
@@ -568,7 +568,7 @@ The following is a detailed, time-boxed action plan for the development sprint. 
 **Objective:** By the end we will have a functional CLI that can generate a runnable, containerized NestJS monorepo with a choice of ORM and best-practice fundamentals.
 
 *   **Task 1 (0-4): CLI Scaffolding & User Interaction**
-    *   **[ ] Task 1.1:** Initialize the Git repository and the Node.js project for the `nest-generator-cli`.
+    *   **[ ] Task 1.1:** Initialize the Git repository and the Node.js project for the `/app`.
     *   **[ ] Task 1.2:** Install all core dependencies: `commander`, `inquirer`, `ejs`, `fs-extra`, `shelljs`, `chalk`.
     *   **[ ] Task 1.3:** Implement the main `create-service` command using `commander`.
     *   **[ ] Task 1.4:** Build the `inquirer` prompt list to capture all MVP configuration options:
@@ -640,7 +640,7 @@ Based on the execution plan and bolstered by best practices from established Nes
 **Objective Status: ON TRACK**
 
 *   **Task 1 (0-4): CLI Scaffolding & User Interaction (COMPLETE)**
-    *   The `nest-generator-cli` project has been initialized.
+    *   The `/app` project has been initialized.
     *   Core dependencies (`commander`, `inquirer`, `ejs`, `fs-extra`, `shelljs`, `chalk`) are installed and configured.
     *   The primary `create-service` command is functional and launches the interactive prompt session successfully. The configuration object is being captured correctly based on user input.
 
