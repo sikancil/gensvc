@@ -1,25 +1,16 @@
 {
-  "name": "gensvc",
+  "name": "app",
   "version": "1.0.0",
   "description": "Backend Service Boilerplate Generator",
-  "main": "src/index.js",
-  "bin": {
-    "gensvc": "src/index.js"
-  },
+  "main": "index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "jest --clearCache && jest --runInBand"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sikancil/gensvc.git"
   },
-  "keywords": [
-    "cli",
-    "generator",
-    "nestjs",
-    "microservices"
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
@@ -34,7 +25,6 @@
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
-    "fs-extra": "^11.3.1",
     "jest": "^30.1.3"
   }
 }

@@ -8,6 +8,9 @@ import { CreateUserDto } from './dto/create-user.dto';
 <% if (includeGoogleAuth) { -%>
 import { AuthGuard } from '@nestjs/passport';
 <% } -%>
+<% if (includeFirebaseAuth) { -%>
+import { FirebaseAuthGuard } from './guards/firebase-auth.guard';
+<% } -%>
 
 @Controller('auth')
 export class AuthController {
@@ -29,15 +32,20 @@ export class AuthController {
   <% if (includeGoogleAuth) { -%>
   @Get('google')
   @UseGuards(AuthGuard('google'))
-  async googleAuth(@Request() req) {
-    // Initiates the Google OAuth2 flow
-  }
+  async googleAuth(@Request() req) {}
 
   @Get('google/redirect')
   @UseGuards(AuthGuard('google'))
   googleAuthRedirect(@Request() req) {
-    // Handles the Google callback
     return this.authService.login(req.user);
+  }
+  <% } -%>
+
+  <% if (includeFirebaseAuth) { -%>
+  @Get('firebase')
+  @UseGuards(FirebaseAuthGuard)
+  firebaseAuth(@Request() req) {
+    return { message: 'Authenticated with Firebase!', user: req.user };
   }
   <% } -%>
 }

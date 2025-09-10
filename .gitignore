@@ -13,3 +13,6 @@ lerna-debug.log*
 # Build output
 dist
 .DS_Store
+
+# Test output
+/tests/temp-test-project

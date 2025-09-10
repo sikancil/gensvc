@@ -11,6 +11,9 @@ import { LocalStrategy } from './local.strategy';
 <% if (includeGoogleAuth) { -%>
 import { GoogleStrategy } from './google.strategy';
 <% } -%>
+<% if (includeFirebaseAuth) { -%>
+import { FirebaseStrategy } from './firebase.strategy';
+<% } -%>
 <% if (usePrisma) { -%>
 import { PrismaModule } from '../../core/prisma/prisma.module';
 <% } -%>
@@ -26,6 +29,9 @@ providers.push(LocalStrategy);
 <% if (includeGoogleAuth) { -%>
 providers.push(GoogleStrategy);
 <% } -%>
+<% if (includeFirebaseAuth) { -%>
+providers.push(FirebaseStrategy);
+<% } -%>
 
 
 @Module({
@@ -38,7 +44,7 @@ providers.push(GoogleStrategy);
     <% } -%>
     PassportModule,
     JwtModule.register({
-      secret: process.env.JWT_SECRET || 'your-secret-key', // Use environment variable in production
+      secret: process.env.JWT_SECRET || 'your-secret-key',
       signOptions: { expiresIn: '60m' },
     }),
   ],
