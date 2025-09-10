@@ -14,6 +14,10 @@ import { GoogleStrategy } from './google.strategy';
 <% if (usePrisma) { -%>
 import { PrismaModule } from '../../core/prisma/prisma.module';
 <% } -%>
+<% if (useSequelize) { -%>
+import { SequelizeModule } from '@nestjs/sequelize';
+import { User } from '../../db/models/user.model';
+<% } -%>
 
 const providers = [AuthService, JwtStrategy];
 <% if (includeLocalAuth) { -%>
@@ -28,6 +32,9 @@ providers.push(GoogleStrategy);
   imports: [
     <% if (usePrisma) { -%>
     PrismaModule,
+    <% } -%>
+    <% if (useSequelize) { -%>
+    SequelizeModule.forFeature([User]),
     <% } -%>
     PassportModule,
     JwtModule.register({
