@@ -1,0 +1,35 @@
+{
+  "name": "gensvc",
+  "version": "1.0.0",
+  "description": "Backend Service Boilerplate Generator",
+  "main": "src/index.js",
+  "bin": {
+    "gensvc": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sikancil/gensvc.git"
+  },
+  "keywords": [
+    "cli",
+    "generator",
+    "nestjs",
+    "microservices"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sikancil/gensvc/issues"
+  },
+  "homepage": "https://github.com/sikancil/gensvc#readme",
+  "dependencies": {
+    "commander": "^14.0.0",
+    "ejs": "^3.1.10",
+    "inquirer": "^12.9.4"
+  }
+}
