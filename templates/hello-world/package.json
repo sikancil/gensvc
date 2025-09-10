@@ -1,0 +1,11 @@
+{
+  "name": "hello-world-app",
+  "version": "1.0.0",
+  "description": "A simple Hello World application.",
+  "main": "hello-world.js",
+  "scripts": {
+    "start": "node hello-world.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,10 +1,2 @@
-# Dependencies
 /node_modules
-/tests/temp-project/node_modules
-
-# Logs
-logs
-*.log
-
-# Test output
 /tests/temp-project

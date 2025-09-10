@@ -1,13 +1,12 @@
 {
   "name": "gensvc",
   "version": "1.0.0",
-  "description": "A CLI for generating NestJS services.",
+  "description": "A simple CLI for generating a Hello World app.",
   "main": "src/index.js",
   "bin": {
     "gensvc": "src/index.js"
   },
   "scripts": {
-    "start": "node src/index.js",
     "test": "jest"
   },
   "dependencies": {
@@ -16,6 +15,5 @@
   },
   "devDependencies": {
     "jest": "^29.7.0"
-  },
-  "license": "ISC"
+  }
 }

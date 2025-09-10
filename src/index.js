@@ -9,15 +9,15 @@ const program = new Command();
 
 program
   .name('gensvc')
-  .description('A CLI for generating a baseline NestJS service.')
+  .description('A CLI for generating a Hello World app.')
   .version('1.0.0');
 
 program
   .command('generate <projectName>')
-  .description('Generate a new NestJS project.')
+  .description('Generate a new Hello World project.')
   .action((projectName) => {
     console.log(`Generating project: ${projectName}...`);
-    const templatePath = path.join(__dirname, '..', 'templates', 'nestjs-basic');
+    const templatePath = path.join(__dirname, '..', 'templates', 'hello-world');
     const targetPath = path.join(process.cwd(), projectName);
 
     if (fs.existsSync(targetPath)) {
@@ -25,35 +25,28 @@ program
       process.exit(1);
     }
 
-    // Copy the template
+    // 1. Copy the template
     fs.copySync(templatePath, targetPath);
 
-    // Update the project name in the generated package.json
+    // 2. Update the project name in the generated package.json
     const pkgPath = path.join(targetPath, 'package.json');
     const pkg = fs.readJsonSync(pkgPath);
     pkg.name = projectName;
     fs.writeJsonSync(pkgPath, pkg, { spaces: 2 });
 
-    console.log('Template copied. Installing dependencies...');
-
-    // Run npm install in the new project directory
+    // 3. Run npm install (no dependencies, but good practice)
+    console.log('Installing dependencies...');
     const install = spawnSync('npm', ['install'], {
       cwd: targetPath,
-      stdio: 'inherit' // Show output to the user
+      stdio: 'inherit'
     });
 
     if (install.status !== 0) {
-        console.error(`Error: 'npm install' failed. Please run it manually in the '${projectName}' directory.`);
+        console.error(`'npm install' failed.`);
         process.exit(1);
     }
 
-    console.log(`\n✅ Project ${projectName} generated and dependencies installed successfully!`);
-    console.log('\nTo get started:');
-    console.log(`  cd ${projectName}`);
-    console.log('  npm run start:dev');
+    console.log(`\n✅ Project ${projectName} generated successfully!`);
   });
 
 program.parse(process.argv);
-
-// Export for testing if needed, though E2E is better
-module.exports = { program };
