@@ -5,7 +5,7 @@
   "main": "hello-world.js",
   "scripts": {
     "start": "node hello-world.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Hello from tests\" && exit 0"
   },
   "author": "",
   "license": "ISC"

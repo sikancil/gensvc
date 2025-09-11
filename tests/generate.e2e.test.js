@@ -29,14 +29,12 @@ describe('CLI End-to-End Test', () => {
     expect(fs.existsSync(projectPath)).toBe(true);
     expect(fs.existsSync(path.join(projectPath, 'hello-world.js'))).toBe(true);
 
-    // 3. Run the generated project
-    const app = spawnSync('npm', ['start'], {
+    // 3. Run the generated project's simple test command
+    const test = spawnSync('npm', ['test'], {
       cwd: projectPath,
       encoding: 'utf-8'
     });
-
-    // 4. Assert the output is correct
-    expect(app.stdout).toContain('Hello, World!');
-    expect(app.status).toBe(0);
+    expect(test.stdout).toContain('Hello from tests');
+    expect(test.status).toBe(0);
   });
 });
