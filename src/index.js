@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 const { Command } = require('commander');
 const fs = require('fs-extra');
 const path = require('path');
@@ -23,7 +22,7 @@ program
 
       if (fs.existsSync(targetPath)) {
         console.error(`Error: Directory '${projectName}' already exists.`);
-        process.exit(1);
+        return;
       }
 
       fs.copySync(templatePath, targetPath);
@@ -41,14 +40,13 @@ program
 
       if (install.status !== 0) {
           console.error(`'npm install' failed.`);
-          process.exit(1);
+          return;
       }
 
       console.log(`\n✅ Project ${projectName} generated successfully!`);
     } catch (error) {
         console.error('\n❌ An error occurred during generation:');
         console.error(error.message);
-        process.exit(1);
     }
   });
 

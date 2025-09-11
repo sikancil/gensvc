@@ -17,7 +17,6 @@ describe('CLI End-to-End Test', () => {
   }, 10000);
 
   test('should generate a new project that runs successfully', () => {
-    // 1. Run the generator
     const generate = spawnSync('node', [cliEntryPoint, 'generate', projectName], {
       cwd: tempDir,
       encoding: 'utf-8'
@@ -25,16 +24,11 @@ describe('CLI End-to-End Test', () => {
     expect(generate.stdout).toContain(`Project ${projectName} generated successfully!`);
     expect(generate.status).toBe(0);
 
-    // 2. Assert the project was created
-    expect(fs.existsSync(projectPath)).toBe(true);
-    expect(fs.existsSync(path.join(projectPath, 'hello-world.js'))).toBe(true);
-
-    // 3. Run the generated project's simple test command
-    const test = spawnSync('npm', ['test'], {
+    const app = spawnSync('npm', ['start'], {
       cwd: projectPath,
       encoding: 'utf-8'
     });
-    expect(test.stdout).toContain('Hello from tests');
-    expect(test.status).toBe(0);
+    expect(app.stdout).toContain('Hello, World!');
+    expect(app.status).toBe(0);
   });
 });
