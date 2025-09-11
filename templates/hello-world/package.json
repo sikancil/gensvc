@@ -4,7 +4,8 @@
   "description": "A simple Hello World application.",
   "main": "hello-world.js",
   "scripts": {
-    "start": "node hello-world.js"
+    "start": "node hello-world.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC"
